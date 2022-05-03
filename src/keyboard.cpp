@@ -93,16 +93,10 @@ char chooseMod()
 * \return a float corresponding to the minimum value of distances.
 *
 * This function checks the array given as input from the lower bound
-* to the upper bound to get the minimum value of the array.
+* to the upper bound to get the minimum value of the array in this range.
 */
 float getMinimum(int start, int end, float distances[])
 {
-    	/* Function to get the minimum distance
-        Arguments:  - distances(float[]): array of distances from the obstacles, divided in subsections
-                   - start(int): first point of the subsection
-                   - end(int): last point of the subsection
-        Returns:    - min(float): minimum value of the subsection */
-    
     	float min = 50;
     	for(int i = start; i < end; i++) 
     	{
@@ -188,8 +182,6 @@ void avoidCollision(const sensor_msgs::LaserScan::ConstPtr& msg)
 */
 void updateVel(const geometry_msgs::Twist::ConstPtr& msg)
 {
-	/* Callback to update the velocity of the robot */
-	
 	lin = msg -> linear.x;
 	ang = msg -> angular.z;
 	
@@ -199,6 +191,9 @@ void updateVel(const geometry_msgs::Twist::ConstPtr& msg)
 	pub.publish(my_vel);
 }
 
+/**
+* \brief Main function.
+*/
 int main(int argc, char **argv)
 {
 	// initialize the node, set up the NodeHandle for handling the communication with the ROS system

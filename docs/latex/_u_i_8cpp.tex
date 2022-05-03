@@ -1,0 +1,91 @@
+\hypertarget{_u_i_8cpp}{}\doxysection{src/\+UI.cpp File Reference}
+\label{_u_i_8cpp}\index{src/UI.cpp@{src/UI.cpp}}
+
+
+User-\/\+Interface for the Robot Controller.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+srvs/\+Empty.\+h\char`\"{}}\newline
+Include dependency graph for U\+I.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{_u_i_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{_u_i_8cpp_abfcc64f225d1a6462dbb01f72b1e6a51}{get\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Function to prompt the user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_u_i_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{_u_i_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int \mbox{\hyperlink{_u_i_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_u_i_8cpp_aeab536548917be5c7e9f3edf6fba600c}\label{_u_i_8cpp_aeab536548917be5c7e9f3edf6fba600c}} 
+std\+\_\+srvs\+::\+Empty \mbox{\hyperlink{_u_i_8cpp_aeab536548917be5c7e9f3edf6fba600c}{rst}}
+\begin{DoxyCompactList}\small\item\em Service to reset the simulation. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{_u_i_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}{menu}}
+\begin{DoxyCompactList}\small\item\em Variable to print the main menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+User-\/\+Interface for the Robot Controller. 
+
+\begin{DoxyAuthor}{Author}
+Sara Sgambato
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/05/2022
+\end{DoxyDate}
+Description \+:
+
+This node prompts the user to choose the modality with which they would like to control the robot behaviour. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_u_i_8cpp_abfcc64f225d1a6462dbb01f72b1e6a51}\label{_u_i_8cpp_abfcc64f225d1a6462dbb01f72b1e6a51}} 
+\index{UI.cpp@{UI.cpp}!getInput@{getInput}}
+\index{getInput@{getInput}!UI.cpp@{UI.cpp}}
+\doxysubsubsection{\texorpdfstring{getInput()}{getInput()}}
+{\footnotesize\ttfamily char get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to prompt the user. 
+
+\begin{DoxyReturn}{Returns}
+a char corresponding to the user input.
+\end{DoxyReturn}
+This function asks the user to choose a modality with which the robot will be controlled. The choice is saved in a variable of type char. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_u_i_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}\label{_u_i_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}} 
+\index{UI.cpp@{UI.cpp}!menu@{menu}}
+\index{menu@{menu}!UI.cpp@{UI.cpp}}
+\doxysubsubsection{\texorpdfstring{menu}{menu}}
+{\footnotesize\ttfamily std\+::string menu}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= R\textcolor{stringliteral}{"(}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{Choose how to control the robot:}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  1 to make the robot reach a point autonomously}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  2 to drive the robot with the keyboard}}
+\DoxyCodeLine{\textcolor{stringliteral}{                }}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  r/R to reset the simulation}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  e/E to exit the program}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"}}
+
+\end{DoxyCode}
+
+
+Variable to print the main menu. 
+

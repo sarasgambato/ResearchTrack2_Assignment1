@@ -33,7 +33,8 @@
 
 std_srvs::Empty rst; ///< Service to reset the simulation.
 
-float xCoord, yCoord; ///< Variables to store the coordinates of the goal.
+float xCoord; ///< Variables to store the x coordinate of the goal.
+float yCoord; ///< Variables to store the y coordinate of the goal.
 
 ros::Publisher pubG; ///< Publisher on /move_base/goal.
 ros::Publisher pubC; ///< Publisher on /move_base/cancel.
@@ -219,6 +220,9 @@ void getStatus(const actionlib_msgs::GoalStatusArray::ConstPtr& msg)
 	
 }
 
+/**
+* \brief Main function.
+*/
 int main(int argc, char **argv)
 {
 	// initialize the node, set up the NodeHandle for handling the communication with the ROS system

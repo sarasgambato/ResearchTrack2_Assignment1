@@ -1,0 +1,191 @@
+\hypertarget{reach_point_8cpp}{}\doxysection{src/reach\+Point.cpp File Reference}
+\label{reach_point_8cpp}\index{src/reachPoint.cpp@{src/reachPoint.cpp}}
+
+
+Node to reach a goal autonomously.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+srvs/\+Empty.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action\+Goal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action\+Feedback.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}actionlib\+\_\+msgs/\+Goal\+Status\+Array.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time.\+h\char`\"{}}\newline
+Include dependency graph for reach\+Point.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reach_point_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{reach_point_8cpp_a784937866dc862c8174ff05783eded1d}{get\+ID}} (const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Feedback\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback function for the /move\+\_\+base/feedback topic subscriber. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reach_point_8cpp_a11b235300dae728c0c5920022276b1fd}{get\+Status}} (const actionlib\+\_\+msgs\+::\+Goal\+Status\+Array\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback function for the /move\+\_\+base/status topic subscriber. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{reach_point_8cpp_a90c1326c4a51a2f8cb4380e55aed0951}{choice}} ()
+\begin{DoxyCompactList}\small\item\em Function to prompt the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reach_point_8cpp_a4d35bd9cbeb38c58a9db5ce9dc84b76b}{set\+Goal}} ()
+\begin{DoxyCompactList}\small\item\em Function to set the goal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reach_point_8cpp_a6911e3fbd406f287be9ab539f0459c0a}{cancel\+Goal}} ()
+\begin{DoxyCompactList}\small\item\em Function to cancel the current goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{reach_point_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int \mbox{\hyperlink{reach_point_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{reach_point_8cpp_aeab536548917be5c7e9f3edf6fba600c}\label{reach_point_8cpp_aeab536548917be5c7e9f3edf6fba600c}} 
+std\+\_\+srvs\+::\+Empty \mbox{\hyperlink{reach_point_8cpp_aeab536548917be5c7e9f3edf6fba600c}{rst}}
+\begin{DoxyCompactList}\small\item\em Service to reset the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a5e61647f5d132c1e7bf4f5391a06faac}\label{reach_point_8cpp_a5e61647f5d132c1e7bf4f5391a06faac}} 
+float \mbox{\hyperlink{reach_point_8cpp_a5e61647f5d132c1e7bf4f5391a06faac}{x\+Coord}}
+\begin{DoxyCompactList}\small\item\em Variables to store the x coordinate of the goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a6c25cfabfcfee4dcbb0f1f268ae5fbc9}\label{reach_point_8cpp_a6c25cfabfcfee4dcbb0f1f268ae5fbc9}} 
+float \mbox{\hyperlink{reach_point_8cpp_a6c25cfabfcfee4dcbb0f1f268ae5fbc9}{y\+Coord}}
+\begin{DoxyCompactList}\small\item\em Variables to store the y coordinate of the goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a93589767fcdeb4bc44a56194cec4069a}\label{reach_point_8cpp_a93589767fcdeb4bc44a56194cec4069a}} 
+ros\+::\+Publisher \mbox{\hyperlink{reach_point_8cpp_a93589767fcdeb4bc44a56194cec4069a}{pubG}}
+\begin{DoxyCompactList}\small\item\em Publisher on /move\+\_\+base/goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a5ee5db6d42d667a229bf0a2576419aef}\label{reach_point_8cpp_a5ee5db6d42d667a229bf0a2576419aef}} 
+ros\+::\+Publisher \mbox{\hyperlink{reach_point_8cpp_a5ee5db6d42d667a229bf0a2576419aef}{pubC}}
+\begin{DoxyCompactList}\small\item\em Publisher on /move\+\_\+base/cancel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a9624589defe0f7910e78617d056fbe30}\label{reach_point_8cpp_a9624589defe0f7910e78617d056fbe30}} 
+ros\+::\+Subscriber \mbox{\hyperlink{reach_point_8cpp_a9624589defe0f7910e78617d056fbe30}{subG}}
+\begin{DoxyCompactList}\small\item\em Subscriber of /move\+\_\+base/feedback. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_ad6f2468602429de760a5f2acc323668c}\label{reach_point_8cpp_ad6f2468602429de760a5f2acc323668c}} 
+ros\+::\+Subscriber \mbox{\hyperlink{reach_point_8cpp_ad6f2468602429de760a5f2acc323668c}{subS}}
+\begin{DoxyCompactList}\small\item\em Subscriber of /move\+\_\+base/status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a277a26d89f87198b128da14ee46d39a7}\label{reach_point_8cpp_a277a26d89f87198b128da14ee46d39a7}} 
+move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Goal \mbox{\hyperlink{reach_point_8cpp_a277a26d89f87198b128da14ee46d39a7}{goal}}
+\begin{DoxyCompactList}\small\item\em Message of type Move\+Base\+Action\+Goal to store the goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a90ce146a9b4642f310558fc2a654807a}\label{reach_point_8cpp_a90ce146a9b4642f310558fc2a654807a}} 
+std\+::string \mbox{\hyperlink{reach_point_8cpp_a90ce146a9b4642f310558fc2a654807a}{goal\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em Variable to store the goal id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_ae80df02d28adacdde1fcb9d8a7b76683}\label{reach_point_8cpp_ae80df02d28adacdde1fcb9d8a7b76683}} 
+actionlib\+\_\+msgs\+::\+Goal\+ID \mbox{\hyperlink{reach_point_8cpp_ae80df02d28adacdde1fcb9d8a7b76683}{id\+\_\+cancel}}
+\begin{DoxyCompactList}\small\item\em Message of type Goal\+ID to store the goal to cancel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a90fcc73cae11e781890584bfbcafe0a5}\label{reach_point_8cpp_a90fcc73cae11e781890584bfbcafe0a5}} 
+int \mbox{\hyperlink{reach_point_8cpp_a90fcc73cae11e781890584bfbcafe0a5}{goal\+\_\+status}}
+\begin{DoxyCompactList}\small\item\em Variable to store the status of the goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reach_point_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}\label{reach_point_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}} 
+bool \mbox{\hyperlink{reach_point_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}} = false
+\begin{DoxyCompactList}\small\item\em Flag to control whether a goal is set or not. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{reach_point_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}{menu}}
+\begin{DoxyCompactList}\small\item\em Variable to print the main menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Node to reach a goal autonomously. 
+
+\begin{DoxyAuthor}{Author}
+Sara Sgambato
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/05/2022
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ /move\+\_\+base/feedback /move\+\_\+base/status
+
+Publishes to\+: ~\newline
+ /move\+\_\+base/goal /move\+\_\+base/cancel
+
+Description \+:
+
+This node prompts the user to either set a new goal or cancel the current goal. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{reach_point_8cpp_a6911e3fbd406f287be9ab539f0459c0a}\label{reach_point_8cpp_a6911e3fbd406f287be9ab539f0459c0a}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!cancelGoal@{cancelGoal}}
+\index{cancelGoal@{cancelGoal}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{cancelGoal()}{cancelGoal()}}
+{\footnotesize\ttfamily void cancel\+Goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to cancel the current goal. 
+
+The function checks whether a goal has been set via the variable \char`\"{}flag\char`\"{}\+: if not, a message is printed warning the user that no goal has been set yet, otherwise the function cancels the current goal, sets the flag to false and informs the user that the operation succeded. \mbox{\Hypertarget{reach_point_8cpp_a90c1326c4a51a2f8cb4380e55aed0951}\label{reach_point_8cpp_a90c1326c4a51a2f8cb4380e55aed0951}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!choice@{choice}}
+\index{choice@{choice}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{choice()}{choice()}}
+{\footnotesize\ttfamily char choice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to prompt the user. 
+
+\begin{DoxyReturn}{Returns}
+a char corresponding to the user input.
+\end{DoxyReturn}
+This function asks the user to set a new goal or to cancel the current one. The choice is saved in a variable of type char. \mbox{\Hypertarget{reach_point_8cpp_a784937866dc862c8174ff05783eded1d}\label{reach_point_8cpp_a784937866dc862c8174ff05783eded1d}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!getID@{getID}}
+\index{getID@{getID}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily void get\+ID (\begin{DoxyParamCaption}\item[{const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Feedback\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback function for the /move\+\_\+base/feedback topic subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & is the message of type Move\+Base\+Action\+Feedback.\\
+\hline
+\end{DoxyParams}
+This callback function is used to get the id of the goal that has just been set. \mbox{\Hypertarget{reach_point_8cpp_a11b235300dae728c0c5920022276b1fd}\label{reach_point_8cpp_a11b235300dae728c0c5920022276b1fd}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily void get\+Status (\begin{DoxyParamCaption}\item[{const actionlib\+\_\+msgs\+::\+Goal\+Status\+Array\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback function for the /move\+\_\+base/status topic subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & is the message of type Goal\+Status\+Array.\\
+\hline
+\end{DoxyParams}
+This callback function is used to get the status of the current goal\+: if the goal is either succeded, aborted or rejected, then the function informs the user of the status and cancels the goal. \mbox{\Hypertarget{reach_point_8cpp_a4d35bd9cbeb38c58a9db5ce9dc84b76b}\label{reach_point_8cpp_a4d35bd9cbeb38c58a9db5ce9dc84b76b}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!setGoal@{setGoal}}
+\index{setGoal@{setGoal}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{setGoal()}{setGoal()}}
+{\footnotesize\ttfamily void set\+Goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to set the goal. 
+
+This function asks the user to insert valid coordinates of a point to reach. After a valid input is detected, the goal parameters are set and the flag of the goal is set to true. The status is checked via the subscriber to the /move\+\_\+base/status topic. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{reach_point_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}\label{reach_point_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}} 
+\index{reachPoint.cpp@{reachPoint.cpp}!menu@{menu}}
+\index{menu@{menu}!reachPoint.cpp@{reachPoint.cpp}}
+\doxysubsubsection{\texorpdfstring{menu}{menu}}
+{\footnotesize\ttfamily std\+::string menu}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= R\textcolor{stringliteral}{"(}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{You chose to let the robot drive on its own!}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  p/P to set the coordinates of the goal}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  c/C to cancel the current goal}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  b/B to go back to the main menu}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"}}
+
+\end{DoxyCode}
+
+
+Variable to print the main menu. 
+

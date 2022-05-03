@@ -1,0 +1,202 @@
+\hypertarget{keyboard_8cpp}{}\doxysection{src/keyboard.cpp File Reference}
+\label{keyboard_8cpp}\index{src/keyboard.cpp@{src/keyboard.cpp}}
+
+
+Node to drive the robot manually.  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Twist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+srvs/\+Empty.\+h\char`\"{}}\newline
+Include dependency graph for keyboard.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{keyboard_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{keyboard_8cpp_a60b66fc6db986c15f578f2a7f6edbc00}{choose\+Mod}} ()
+\begin{DoxyCompactList}\small\item\em Function to prompt the user. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{keyboard_8cpp_a39a781c97f02e50fc8798be214f2078b}{get\+Minimum}} (int start, int end, float distances\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Function to get the minimum value from an array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keyboard_8cpp_abb067e1caa9c06d66286de65203fdb7a}{avoid\+Collision}} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback function for the /scan topic subscriber. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keyboard_8cpp_a2639a5442a04055fee22edfc3aaee5c9}{update\+Vel}} (const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback function for the /cmd\+\_\+key\+\_\+vel topic subscriber. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{keyboard_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int \mbox{\hyperlink{keyboard_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{keyboard_8cpp_aeab536548917be5c7e9f3edf6fba600c}\label{keyboard_8cpp_aeab536548917be5c7e9f3edf6fba600c}} 
+std\+\_\+srvs\+::\+Empty \mbox{\hyperlink{keyboard_8cpp_aeab536548917be5c7e9f3edf6fba600c}{rst}}
+\begin{DoxyCompactList}\small\item\em Service to reset the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{keyboard_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+ros\+::\+Publisher \mbox{\hyperlink{keyboard_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}}
+\begin{DoxyCompactList}\small\item\em Publisher on /cmd\+\_\+vel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_a58b913289dd9ed4f654dfbd74c11b790}\label{keyboard_8cpp_a58b913289dd9ed4f654dfbd74c11b790}} 
+geometry\+\_\+msgs\+::\+Twist \mbox{\hyperlink{keyboard_8cpp_a58b913289dd9ed4f654dfbd74c11b790}{my\+\_\+vel}}
+\begin{DoxyCompactList}\small\item\em Message of type Twist. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_aba7d7d15ddf4beb964b0bcdd3af6e6ca}\label{keyboard_8cpp_aba7d7d15ddf4beb964b0bcdd3af6e6ca}} 
+bool \mbox{\hyperlink{keyboard_8cpp_aba7d7d15ddf4beb964b0bcdd3af6e6ca}{assisted}} = false
+\begin{DoxyCompactList}\small\item\em Variable to set the assisted modality. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_a14012a6d1d9353bc588f1ba75dd941f2}\label{keyboard_8cpp_a14012a6d1d9353bc588f1ba75dd941f2}} 
+float \mbox{\hyperlink{keyboard_8cpp_a14012a6d1d9353bc588f1ba75dd941f2}{wall\+\_\+th}} = 1
+\begin{DoxyCompactList}\small\item\em Threshold from the wall. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_aab1361e504b14f24ab0335ba905eaef1}\label{keyboard_8cpp_aab1361e504b14f24ab0335ba905eaef1}} 
+float \mbox{\hyperlink{keyboard_8cpp_aab1361e504b14f24ab0335ba905eaef1}{lin}}
+\begin{DoxyCompactList}\small\item\em Variable to store the linear velocity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{keyboard_8cpp_aa6d04e25ddf74e933da3b0213229910c}\label{keyboard_8cpp_aa6d04e25ddf74e933da3b0213229910c}} 
+float \mbox{\hyperlink{keyboard_8cpp_aa6d04e25ddf74e933da3b0213229910c}{ang}}
+\begin{DoxyCompactList}\small\item\em Variable to store the angular velocity. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{keyboard_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}{menu}}
+\begin{DoxyCompactList}\small\item\em Variable to print the main menu. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{keyboard_8cpp_ab33691f3f8710361a2d658da948b1d73}{assisted\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em Variable to print the assisted menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Node to drive the robot manually. 
+
+\begin{DoxyAuthor}{Author}
+Sara Sgambato
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/05/2022
+\end{DoxyDate}
+Subscribes to\+: ~\newline
+ /scan /cmd\+\_\+key\+\_\+vel
+
+Publishes to\+: ~\newline
+ /cmd\+\_\+vel
+
+Description \+:
+
+This node prompts the user to choose between the assisted modality and the non-\/assisted modality. If the user choses the assisted modality, the node reads data from the /scan topic to avoid obstacles. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{keyboard_8cpp_abb067e1caa9c06d66286de65203fdb7a}\label{keyboard_8cpp_abb067e1caa9c06d66286de65203fdb7a}} 
+\index{keyboard.cpp@{keyboard.cpp}!avoidCollision@{avoidCollision}}
+\index{avoidCollision@{avoidCollision}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{avoidCollision()}{avoidCollision()}}
+{\footnotesize\ttfamily void avoid\+Collision (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback function for the /scan topic subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & is the message of type Laser\+Scan\\
+\hline
+\end{DoxyParams}
+This callback function becomes useful only when the user decides to use the assisted modality. In this case, the function gets the minimum value of 3 subsections of the array ranges, which contains the distances from the obstacles in a range of 180 degrees\+:
+\begin{DoxyItemize}
+\item if there is a wall in front of the robot, the robot stops;
+\item if there is a wall near the side of the robot, the robot turns until it is undetectable. 
+\end{DoxyItemize}\mbox{\Hypertarget{keyboard_8cpp_a60b66fc6db986c15f578f2a7f6edbc00}\label{keyboard_8cpp_a60b66fc6db986c15f578f2a7f6edbc00}} 
+\index{keyboard.cpp@{keyboard.cpp}!chooseMod@{chooseMod}}
+\index{chooseMod@{chooseMod}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{chooseMod()}{chooseMod()}}
+{\footnotesize\ttfamily char choose\+Mod (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to prompt the user. 
+
+\begin{DoxyReturn}{Returns}
+a char corresponding to the user input.
+\end{DoxyReturn}
+This function asks the user whether they\textquotesingle{}d like to use the assisted modality. The choice is saved in a variable of type char. \mbox{\Hypertarget{keyboard_8cpp_a39a781c97f02e50fc8798be214f2078b}\label{keyboard_8cpp_a39a781c97f02e50fc8798be214f2078b}} 
+\index{keyboard.cpp@{keyboard.cpp}!getMinimum@{getMinimum}}
+\index{getMinimum@{getMinimum}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{getMinimum()}{getMinimum()}}
+{\footnotesize\ttfamily float get\+Minimum (\begin{DoxyParamCaption}\item[{int}]{start,  }\item[{int}]{end,  }\item[{float}]{distances\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Function to get the minimum value from an array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & defines the lower bound \\
+\hline
+{\em end} & defines the upper bound \\
+\hline
+{\em distances} & is the array which will be examinated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a float corresponding to the minimum value of distances.
+\end{DoxyReturn}
+This function checks the array given as input from the lower bound to the upper bound to get the minimum value of the array in this range. \mbox{\Hypertarget{keyboard_8cpp_a2639a5442a04055fee22edfc3aaee5c9}\label{keyboard_8cpp_a2639a5442a04055fee22edfc3aaee5c9}} 
+\index{keyboard.cpp@{keyboard.cpp}!updateVel@{updateVel}}
+\index{updateVel@{updateVel}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{updateVel()}{updateVel()}}
+{\footnotesize\ttfamily void update\+Vel (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback function for the /cmd\+\_\+key\+\_\+vel topic subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & is the message of type Twist\\
+\hline
+\end{DoxyParams}
+This callback function saves the velocities got from msg in 2 gloabl variables, then it updates the velocities of the robot using the gloabl variables. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{keyboard_8cpp_ab33691f3f8710361a2d658da948b1d73}\label{keyboard_8cpp_ab33691f3f8710361a2d658da948b1d73}} 
+\index{keyboard.cpp@{keyboard.cpp}!assisted\_menu@{assisted\_menu}}
+\index{assisted\_menu@{assisted\_menu}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{assisted\_menu}{assisted\_menu}}
+{\footnotesize\ttfamily std\+::string assisted\+\_\+menu}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= R\textcolor{stringliteral}{"(}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{You are in the assisted modality!}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  n/N to go back to the default modality}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"}}
+
+\end{DoxyCode}
+
+
+Variable to print the assisted menu. 
+
+\mbox{\Hypertarget{keyboard_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}\label{keyboard_8cpp_ad4a9b22f455eca62be99f73e3b5aa873}} 
+\index{keyboard.cpp@{keyboard.cpp}!menu@{menu}}
+\index{menu@{menu}!keyboard.cpp@{keyboard.cpp}}
+\doxysubsubsection{\texorpdfstring{menu}{menu}}
+{\footnotesize\ttfamily std\+::string menu}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= R\textcolor{stringliteral}{"(}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{You chose to drive the robot manually!}}
+\DoxyCodeLine{\textcolor{stringliteral}{The default modality is the non-\/assisted keyboard.}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  a/A to drive with the assisted keyboard}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{Press:  b/B to go back to the main menu}}
+\DoxyCodeLine{\textcolor{stringliteral}{***********************************************}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"}}
+
+\end{DoxyCode}
+
+
+Variable to print the main menu. 
+
