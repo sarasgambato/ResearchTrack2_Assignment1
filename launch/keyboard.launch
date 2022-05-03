@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Run the keyboard node -->
+	<node name = "keyboard" pkg = "final_assignment" type = "keyboard_controller" output = "screen" required = "true"/>
+	
+	 <!--Run the teleop_twist_keyboard node -->
+	<node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" respawn="false" output="screen" launch-prefix="xterm -fa 'Monospace' -fs 14 -e">
+		<remap from = "/cmd_vel" to = "/cmd_key_vel"/>
+	</node>
+  	
+</launch>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<include file="$(find final_assignment)/launch/simulation_gmapping.launch"/>
+    	<include file="$(find final_assignment)/launch/move_base.launch"/>
+
+	<!-- Run the User Interface node -->
+	<node name = "UI" pkg = "final_assignment" type = "robot_UI" output = "screen" required = "true" launch-prefix="xterm -fa 'Monospace' -fs 14 -e"/>
+  	
+</launch>
