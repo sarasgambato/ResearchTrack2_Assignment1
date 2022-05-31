@@ -139,7 +139,6 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(robot_UI src/UI.cpp)
 add_executable(keyboard_controller src/keyboard.cpp)
-##add_executable(assisted_controller src/assisted.cpp)
 add_executable(auto_controller src/reachPoint.cpp)
 
 ## Rename C++ executable without prefix
